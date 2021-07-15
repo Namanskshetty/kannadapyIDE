@@ -1,6 +1,8 @@
 from tkinter import *
 from tkinter.filedialog import asksaveasfilename, askopenfilename
 import subprocess
+import webbrowser
+
 
 compiler = Tk()
 compiler.title("ಪೈಥಾನ_IDE")#title for the ide
@@ -28,6 +30,15 @@ def open_fie():
         editor.insert('1.0',code)#clean formed with replaced with code variable
         set_file_path(path)
 
+def help():
+    webbrowser.open('https://github.com/Namanskshetty/kannadapyIDE')#opens git page
+
+def about():
+    save_prompt=Toplevel()#this part gives the prompt
+    text=Label(save_prompt,text="ಕನ್ನಡ Ide \n ಯಿ೦ದ: ನಮನ್ ಶೆಟ್ಟಿ \n 2021 ")
+    text.pack()
+    return
+
 def run(): #to run the function
     if file_path=="":#if there is no file it will send this message in order to keep the process from crashing
         save_prompt=Toplevel()#this part gives the prompt
@@ -54,6 +65,12 @@ menu_bar.add_cascade(label="ಫೈಲ್",menu=file_menu)
 run_bar=Menu(menu_bar,tearoff=8)
 run_bar.add_command(label="ಓಡು",command=run)
 menu_bar.add_cascade(label="ಓಡು",menu=run_bar)
+
+ab_bar=Menu(menu_bar,tearoff=8)#about
+ab_bar.add_command(label="ಕುರಿತು",command=about)
+ab_bar.add_command(label="ಸಹಾಯ",command=help)
+menu_bar.add_cascade(label="ಅಧಿಕ",menu=ab_bar)
+
 
 compiler.config(menu=menu_bar)
 editor = Text()#give the user permission or the space to write
