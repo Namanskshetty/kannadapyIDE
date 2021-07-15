@@ -37,8 +37,11 @@ def run(): #to run the function
     command=f'python {file_path}'#open file path for the output
     process=subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell= True)#creats the shell
     output, error=process.communicate()
-    code_output.insert('1.0',output)
-    code_output.insert('1.0',error)
+    code_output.insert('1.0',error,"\n")
+    code_output.insert('1.0',output,"\n")
+    code_output.insert('1.0',command+"\n")
+    code_output.insert('1.0',"ನಿಮ್ಮ ಫಲಿತಾಂಶ:"+"\n")
+
 
 menu_bar=Menu(compiler)
 file_menu=Menu(menu_bar,tearoff=8)
