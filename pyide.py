@@ -38,7 +38,8 @@ def about():
     text=Label(save_prompt,text="ಕನ್ನಡ Ide \n ಯಿ೦ದ: ನಮನ್ ಶೆಟ್ಟಿ \n 2021 ")
     text.pack()
     return
-
+def download_win():
+    webbrowser.open('https://nimmaai.tech/data/kannadapyIDE.zip')
 def run(): #to run the function
     if file_path=="":#if there is no file it will send this message in order to keep the process from crashing
         save_prompt=Toplevel()#this part gives the prompt
@@ -68,6 +69,7 @@ menu_bar.add_cascade(label="ಓಡು",menu=run_bar)
 
 ab_bar=Menu(menu_bar,tearoff=8)#about
 ab_bar.add_command(label="ಕುರಿತು",command=about)
+ab_bar.add_command(label="ಡೌನ್‌ಲೋಡ್ .exe",command=download_win)
 ab_bar.add_command(label="ಸಹಾಯ",command=help)
 menu_bar.add_cascade(label="ಅಧಿಕ",menu=ab_bar)
 
